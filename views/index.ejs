@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe</title>
+</head>
+
+<body>
+    <h1>
+        <%= dataFromSpoonacular.title %>
+    </h1>
+    <div>
+        <img src="<%= dataFromSpoonacular.imageUrl %>" alt="pilt">
+    </div>
+    <h2>Summary</h2>
+    <div>
+        <%- dataFromSpoonacular.summary %>
+    </div>
+    <h2>Ingredients</h2>
+    <ul>
+        <% for (let i=0; i < dataFromSpoonacular.ingredients.length; i++){ %>
+            <li>
+                <%= dataFromSpoonacular.ingredients[i].name %> 
+                <%= dataFromSpoonacular.ingredients[i].measures.metric.amount %> 
+                <%= dataFromSpoonacular.ingredients[i].measures.metric.unitShort %>
+            </li>
+
+            <% } %>
+    </ul>
+
+    <h2>Instructions</h2>
+    <div>
+        <%- dataFromSpoonacular.instructions %>
+    </div>
+</body>
+
+</html>
